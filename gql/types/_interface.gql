@@ -1,0 +1,29 @@
+interface ResponseMutation {
+    code: String
+    ok: Boolean!
+    message: String!
+}
+
+interface ClientInterface {
+    name: String
+    company: String
+    street: String
+    city: String
+    psc: Int
+    country: String
+    ico: Int
+    dic: Int
+    icdph: Int
+    post_company: String
+    post_street: String
+    post_city: String
+    post_psc: Int
+    post_country: String
+    emails: [ClientEmails]
+    phones: [ClientPhones]
+    price_hour: Float
+    contact_person: String
+    description: String
+    created_at: DateTime
+    deleted_at: DateTime
+}

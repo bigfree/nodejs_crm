@@ -1,0 +1,15 @@
+{
+    "extends": "eslint:recommended",
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": false,
+        "ecmaFeatures": {
+            "globalReturn": false
+        }
+    },
+    "rules": {
+        "no-console": "off",
+        "no-undef": "off"
+    }
+}

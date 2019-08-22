@@ -1,0 +1,93 @@
+type Client implements ClientInterface {
+    id: ID
+    name: String
+    company: String
+    street: String
+    city: String
+    psc: Int
+    country: String
+    ico: Int
+    dic: Int
+    icdph: Int
+    post_company: String
+    post_street: String
+    post_city: String
+    post_psc: Int
+    post_country: String
+    emails: [ClientEmails]
+    phones: [ClientPhones]
+    price_hour: Float
+    contact_person: String
+    description: String
+    created_at: DateTime
+    deleted_at: DateTime
+    tasks: [Task]
+}
+
+type ClientEmails {
+    id: ID
+    email: String
+    comment: String
+}
+
+type ClientPhones {
+    id: ID
+    phone: String
+    comment: String
+}
+
+type ClientResponseMutation implements ResponseMutation {
+    code: String
+    ok: Boolean!
+    message: String!
+    client: Client
+}
+
+
+input ClientInput {
+    name: String
+    company: String
+    street: String
+    city: String
+    psc: String
+    country: String
+    ico: String
+    dic: String
+    icdph: String
+    post_company: String
+    post_street: String
+    post_city: String
+    post_psc: String
+    post_country: String
+    emails: [EmailInputs]
+    phones: [PhoneInput]
+    price_hour: Float
+    contact_person: String
+    description: String
+}
+
+input EmailInputs {
+    email: String
+    comment: String
+}
+
+input PhoneInput {
+    phone: String
+    comment: String
+}
+
+
+extend type Query {
+    client(id: ID!): Client!
+    clients: [Client]!
+}
+
+extend type Mutation {
+    addClient(input: ClientInput!): ClientResponseMutation!
+    updateClient(id: ID!, input: ClientInput!): ClientResponseMutation!
+    deleteClient(id: ID!): ClientResponseMutation!
+}
+
+extend type Subscription {
+    clientAdded: Client
+}
