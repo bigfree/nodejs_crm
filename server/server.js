@@ -24,7 +24,7 @@ server.installSubscriptionHandlers(app);
 
 ws.listen(process.env.PORT, () => {
     console.log(`🚀 Server on port: ${process.env.PORT}`);
-    console.log(`🚀 Mongo on port: ${process.env.DBPORT}`);
+    // console.log(`🚀 Mongo on port: ${process.env.DBPORT}`);
 
     new SubscriptionServer({
         execute,

@@ -3,6 +3,7 @@ import "../config/env";
 
 mongoose.connect(process.env.URI, {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
 }).then(() => console.log("MongoDB connect successful")).catch(err => console.log(err));

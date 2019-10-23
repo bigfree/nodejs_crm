@@ -1,10 +1,14 @@
 export default {
     Query: {
         // Vypisanie jednej ulohy
-        task: async (root, { id }, { models: { task }}) => await task.findById(id).populate("client"),
+        task: async (root, { id }, { models: { task }}) => {
+            return await task.findById(id).populate("client");
+        },
 
         // Vypisanie vsetkych uloh
-        tasks: async (root, {}, { models: { task }}) => await task.find({}).sort({ created_at: -1 }).populate("client"),
+        tasks: async (root, _, { models: { task }}) => {
+            return await task.find({}).sort({ created_at: -1 }).populate("client");
+        },
     },
     Mutation: {
 
